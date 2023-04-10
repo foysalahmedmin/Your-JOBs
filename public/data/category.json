@@ -1,0 +1,26 @@
+[
+    {
+      "_id": "6434727806012c020e22b2fc",
+      "picture": "https://i.ibb.co/K2Gwc4W/accounts-1.png",
+      "category": "Account & Finance",
+      "sits": "300"
+    },
+    {
+      "_id": "643472784198c97a6536930d",
+      "picture": "https://i.ibb.co/74R0y9Q/business-1.png",
+      "category": "Creative Design",
+      "sits": "100+"
+    },
+    {
+      "_id": "643472785ccfbec3bb6999d6",
+      "picture": "https://i.ibb.co/t22BLg2/social-media-1.png",
+      "category": "Marketing & Sales",
+      "sits": "150"
+    },
+    {
+      "_id": "643472789bca9459a159b4c9",
+      "picture": "https://i.ibb.co/Qctz3YT/chip-1.png",
+      "category": "Engineering Job",
+      "sits": "224"
+    }
+  ]

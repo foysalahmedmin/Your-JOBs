@@ -11,8 +11,8 @@ const Banner = () => {
                         <Lottie animationData={animation} loop={true}></Lottie>
                     </div>
                 </div>
-                <div className='max-w-lg text-center md:text-left'>
-                    <h1 className='md:text-7xl text-6xl font-bold mb-6'>
+                <div className='md:max-w-[50%] text-center md:text-left xl:max-w-lg'>
+                    <h1 className='md:text-7xl text-5xl font-bold mb-6'>
                         One Step Closer To Your <br /> <span className='text-animation'>Dream Job</span>
                     </h1>
                     <p className='mb-6'>
