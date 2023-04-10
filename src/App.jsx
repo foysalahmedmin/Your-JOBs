@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
     <Header />
-    <main>
+    <main className='mt-[5rem] min-h-[calc(100vh-5rem)]'>
       <Outlet />
     </main>
     <Footer />
