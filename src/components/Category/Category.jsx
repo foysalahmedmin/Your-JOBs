@@ -3,7 +3,7 @@ import CategoryItem from '../CategoryItem/CategoryItem';
 
 const Category = ({ data }) => {
     return (
-        <section className='py-9'>
+        <section className='py-16'>
             <div className="container">
                 <div className="text-center mb-7">
                     <h2 className='font-bold text-4xl mb-5'>

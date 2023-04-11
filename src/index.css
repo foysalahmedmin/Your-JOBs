@@ -9,8 +9,8 @@
   .btn-primary {
     @apply bg-gradient-to-r hover:bg-gradient-to-l from-primary to-secondary py-3 px-5 rounded-md font-bold text-white text-lg;
   }
-  .btn-outline{
-    @apply bg-gradient-to-r hover:bg-gradient-to-l from-primary to-secondary bg-clip-text text-transparent border border-primary py-3 px-5 rounded-md font-bold text-lg;
+  .outline{
+    @apply bg-gradient-to-r hover:bg-gradient-to-l from-primary to-secondary bg-clip-text text-transparent border border-primary py-1 px-3 rounded-md font-bold text-lg;
   }
   .text-animation{
     @apply animate-text bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;

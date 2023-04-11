@@ -4,7 +4,7 @@ import animation from '../../assets/interview.json'
 
 const Banner = () => {
     return (
-        <section className='banner-sections py-9'>
+        <section className='banner-sections py-16 bg-purple-50'>
             <div className="container md:flex flex-row-reverse justify-between items-center">
                 <div>
                     <div>
