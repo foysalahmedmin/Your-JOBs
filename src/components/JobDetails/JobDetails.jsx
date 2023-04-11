@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { HiOutlineCurrencyDollar, HiOutlineFlag, HiOutlineLocationMarker, HiOutlineMailOpen, HiOutlinePhone } from 'react-icons/hi';
+import { addToDb, getAppliedJobs } from '../../utilities/localStorageManage';
 
 const JobDetails = () => {
     const main_data = useLoaderData()
     const { _id, job_title, company, address, min_salary, max_salary, phone, email, description, job_responsibility, Educational_Requirements, Experiences } = main_data;
     const [applied, setApplied] = useState({})
     useEffect(()=>{
-        
+        const dbData = getAppliedJobs()
+        setApplied(dbData)
     },[])
+    const addToDB_handler = (id) =>{
+        if (id in applied){
+            console.log("this data is already exist")
+        }else{
+            addToDb(id)
+        }
+    }
     return (
         <section>
             <div className="container h-96 flex justify-center items-center bg-purple-50 py-16">
@@ -37,7 +46,7 @@ const JobDetails = () => {
                                 <p className='flex items-center gap-2 text-xl'><span className='text-primary'><HiOutlineLocationMarker /></span> <span><strong className='text-gray-600'>Address:</strong> <span className='text-gray-500'>{address}</span></span></p>
                             </div>
                         </div>
-                        <button className='btn-primary w-full'>Apply Now</button>
+                        <button onClick={()=> addToDB_handler(_id) } className='btn-primary w-full'>Apply Now</button>
 
                     </div>
                 </div>
