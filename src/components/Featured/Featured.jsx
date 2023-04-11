@@ -3,6 +3,7 @@ import FeaturedItem from '../FeaturedItem/FeaturedItem';
 
 const Featured = () => {
     const [jobsData, setJobsData] = useState([])
+    const [showFeatures, setShowFeatures] = useState(4)
     useEffect(() => {
         fetch("./data/job's_data.json")
             .then(res => res.json())
@@ -21,9 +22,14 @@ const Featured = () => {
                 </div>
                 <div className='grid md:grid-cols-2 justify-around gap-5'>
                     {
-                        jobsData.map((singleData) => <FeaturedItem data={singleData} key={singleData._id} />)
+                        jobsData.slice(0, showFeatures).map((singleData) => <FeaturedItem data={singleData} key={singleData._id} />)
                     }
                 </div>
+            </div>
+            <div className='text-center mt-5'>
+                {
+                    showFeatures == jobsData.length? <button onClick={()=> setShowFeatures(4)} className='outline py-3 px-5'>Show Less</button> : <button onClick={()=> setShowFeatures(jobsData.length)} className='btn-primary'>Show All</button>
+                }
             </div>
         </section>
     );
