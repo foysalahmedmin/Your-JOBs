@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { HiOutlineCurrencyDollar, HiOutlineFlag, HiOutlineLocationMarker, HiOutlineMailOpen, HiOutlinePhone } from 'react-icons/hi';
 import { addToDb, getAppliedJobs } from '../../utilities/localStorageManage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const JobDetails = () => {
     const main_data = useLoaderData()
     const { _id, job_title, company, address, min_salary, max_salary, phone, email, description, job_responsibility, Educational_Requirements, Experiences } = main_data;
     const [applied, setApplied] = useState({})
-    useEffect(()=>{
+    useEffect(() => {
         const dbData = getAppliedJobs()
         setApplied(dbData)
-    },[])
-    const addToDB_handler = (id) =>{
-        if (id in applied){
-            console.log("this data is already exist")
-        }else{
+    }, [])
+    const addToDB_handler = (id) => {
+        if (id in applied) {
+            console.log("")
+            toast("this data is already exist")
+        } else {
             addToDb(id)
         }
     }
@@ -46,12 +49,12 @@ const JobDetails = () => {
                                 <p className='flex items-center gap-2 text-xl'><span className='text-primary'><HiOutlineLocationMarker /></span> <span><strong className='text-gray-600'>Address:</strong> <span className='text-gray-500'>{address}</span></span></p>
                             </div>
                         </div>
-                        <button onClick={()=> addToDB_handler(_id) } className='btn-primary w-full'>Apply Now</button>
+                        <button onClick={() => addToDB_handler(_id)} className='btn-primary w-full'>Apply Now</button>
 
                     </div>
                 </div>
             </div>
-
+            <ToastContainer />
         </section>
     );
 };
