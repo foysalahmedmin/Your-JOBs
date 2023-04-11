@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CategoryItem from '../CategoryItem/CategoryItem';
 
-const Category = ({ data }) => {
+const Category = () => {
+    const [data, setData ] = useState([])
+    useEffect(()=>{
+        fetch('./data/category.json')
+        .then(res => res.json())
+        .then(data => setData(data))
+    }, [])
     return (
         <section className='py-16'>
             <div className="container">

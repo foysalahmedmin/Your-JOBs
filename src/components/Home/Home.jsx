@@ -5,11 +5,10 @@ import { useLoaderData } from 'react-router-dom';
 import Featured from '../Featured/Featured';
 
 const Home = () => {
-    const data = useLoaderData()
     return (
         <>
             <Banner />
-            <Category data = {data} />
+            <Category />
             <Featured />
         </>
     );

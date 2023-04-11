@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            Its Footer
-        </div>
+        <footer className='py-16 bg-[#1A1919]'>
+            
+        </footer>
     );
 };
 
