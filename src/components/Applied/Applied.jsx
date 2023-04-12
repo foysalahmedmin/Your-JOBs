@@ -4,6 +4,7 @@ import AppliedItem from '../AppliedItem/AppliedItem';
 import { getAppliedJobs } from '../../utilities/localStorageManage';
 import { useNavigation } from 'react-router-dom';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
+import SubBanner from '../SubBanner/SubBanner';
 
 const Applied = () => {
     const [allData, setAllData] = useState([])
@@ -53,9 +54,7 @@ const Applied = () => {
 
     return (
         <section>
-            <div className="container h-96 flex justify-center items-center bg-purple-50 py-16">
-                <h1 className='font-bold text-4xl'>Job Details</h1>
-            </div>
+            <SubBanner><h1 className='font-bold text-4xl'>Applied Jobs</h1></SubBanner>
             <div className='container py-16'>
                 <div className='text-right mb-5 relative'>
                     <button onClick={()=>setDropdown(!dropdown)} className='flex items-center gap-2 font-semibold text-gray-700 text-xl ml-auto bg-purple-100 rounded-md py-3 p-5'>

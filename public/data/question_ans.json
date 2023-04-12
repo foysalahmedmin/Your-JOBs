@@ -2,7 +2,7 @@
   {
     "id": "642707cd4289e07fbc3ab2cd",
     "question": "When should you use context API?",
-    "ans": "Context is primarily used when some data needs to be accessible by many components at different nesting levels. Apply it sparingly because it makes component reuse more difficult. If you only want to avoid passing some props through many levels, component composition is often a simpler solution than context."
+    "ans": "Context is primarily used when some data needs to be accessible by many components at different nesting levels. Only to avoid passing some props through many levels, the component composition is often a simpler solution than context."
   },
   {
     "id": "642707cd9923c21b7a07c956",

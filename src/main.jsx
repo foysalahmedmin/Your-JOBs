@@ -12,12 +12,14 @@ import Statistics from './components/Statistics/Statistics';
 import Blog from './components/Blog/Blog';
 import JobDetails from './components/JobDetails/JobDetails';
 import JobDetailsLoader from './utilities/Loader';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

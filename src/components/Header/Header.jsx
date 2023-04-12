@@ -12,7 +12,7 @@ const Header = () => {
                     <div className="logo">
                         <Link to="/"><h1 className='text-3xl font-bold'><span>Your</span> <span className='text-animation'>JOBs</span></h1></Link>
                     </div>
-                    <ul className= {`absolute right-0 top-[4.79rem] p-3 min-h-[calc(100vh-9rem)] md:min-h-[auto] leading-10 md:leading-3 rounded-md bg-white md:static md:flex justify-center items-center gap-7 ${menuActive? 'right-0':'right-[100%]'}`}>
+                    <ul className= {`absolute right-0 top-[4.79rem] p-3 min-h-[calc(100vh-9rem)] md:min-h-[auto] leading-10 md:leading-3 rounded-md bg-white md:static md:flex justify-center items-center gap-7 transition-[right] ${menuActive? 'right-0':'right-[-100%]'}`}>
                         <li className='font-semibold'><ActiveLink to={"/"}>Home</ActiveLink></li>
                         <li className='font-semibold'><ActiveLink to={"/Statistics"}>Statistics</ActiveLink></li>
                         <li className='font-semibold'><ActiveLink to={"/Applied"}>Applied Jobs</ActiveLink></li>

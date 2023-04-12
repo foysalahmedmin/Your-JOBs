@@ -30,7 +30,7 @@ const Statistics = () => {
                         Explore thousands of job opportunities with all the information you need. Its your future
                     </p>
                 </div>
-                <div className='text-center flex items-center justify-center h-full overflow-x-scroll'>
+                <div className='text-center flex items-center justify-center h-full overflow-x-scroll lg:overflow-auto'>
                     <AreaChart
                         width={1000}
                         height={300}

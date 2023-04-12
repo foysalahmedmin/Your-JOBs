@@ -5,6 +5,7 @@ import { addToDb, getAppliedJobs } from '../../utilities/localStorageManage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
+import SubBanner from '../SubBanner/SubBanner';
 
 const JobDetails = () => {
     const main_data = useLoaderData()
@@ -17,7 +18,7 @@ const JobDetails = () => {
     const addToDB_handler = (id) => {
         if (id in applied) {
             console.log("")
-            toast("this data is already exist")
+            toast("Already applied :)")
         } else {
             addToDb(id)
         }
@@ -30,10 +31,8 @@ const JobDetails = () => {
 
     return (
         <section>
-            <div className="container h-96 flex justify-center items-center bg-purple-50 py-16">
-                <h1 className='font-bold text-4xl'>Job Details</h1>
-            </div>
-            <div className="container flex justify-between gap-5 py-16">
+            <SubBanner><h1 className='font-bold text-4xl'>Job Details</h1></SubBanner>
+            <div className="container md:flex justify-between gap-5 py-16">
                 <div>
                     <p className='mb-7 leading-8 text-xl'><strong className='text-gray-600'>Job Description: </strong><span className='text-gray-500'>{description}</span></p>
                     <p className='my-7 leading-8 text-xl'><strong className='text-gray-600'>Job Responsibility: </strong><span className='text-gray-500'>{job_responsibility}</span></p>
@@ -41,7 +40,7 @@ const JobDetails = () => {
                     <p className='my-7 leading-8 text-xl'><strong className='text-gray-600'>Experiences: </strong><span className='text-gray-500'>{Experiences}</span></p>
                 </div>
                 <div>
-                    <div className='w-96'>
+                    <div className='lg:w-[29rem] md:w-80 w-full'>
                         <div className='bg-purple-100 p-8 mb-8 rounded-md'>
                             <div className='mb-8 '>
                                 <h3 className='text-2xl font-bold border-b border-black pb-5 mb-5'>Job Details</h3>
