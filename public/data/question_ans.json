@@ -1,0 +1,22 @@
+[
+  {
+    "id": "642707cd4289e07fbc3ab2cd",
+    "question": "When should you use context API?",
+    "ans": "Context is primarily used when some data needs to be accessible by many components at different nesting levels. Apply it sparingly because it makes component reuse more difficult. If you only want to avoid passing some props through many levels, component composition is often a simpler solution than context."
+  },
+  {
+    "id": "642707cd9923c21b7a07c956",
+    "question": "What is a custom hook?",
+    "ans": "Custom React JS hooks are reusable functions that a React JS software developer can use to add special and unique functionality to the React applications. Usually, if there is a requirement to add a feature, one can install a third-party library and solve the problem."
+  },
+  {
+    "id": "642707cd0e9bbcf324e50eab",
+    "question": "What is useRef?",
+    "ans": "The useRef Hook allows you to persist values between renders. useRef is one of the many built-in hooks provided by React. It is useful for persisting mutable data between component renders. There are a couple of specific uses cases for useRef and refs that I'd like to call out. Modifying a child DOM node outside of the typical React data flow."
+  },
+  {
+    "id": "642707cd92cef7d3f29f763c",
+    "question": "What is useMemo?",
+    "ans": "React has a built-in hook called useMemo that allows you to memoize expensive functions so that you can avoid calling them on every render. You simple pass in a function and an array of inputs and useMemo will only recompute the memoized value when one of the inputs has changed."
+  }
+]
