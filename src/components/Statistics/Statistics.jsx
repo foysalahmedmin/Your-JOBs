@@ -1,5 +1,7 @@
 import React, { useEffect, useState, PureComponent } from 'react';
+import { useNavigation } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 
 
@@ -11,6 +13,11 @@ const Statistics = () => {
         .then(res => res.json())
         .then(data => setMarksData(data))
     }, [])
+
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <LoadSpinner />
+    }
 
     return (
         <section className='py-16'>

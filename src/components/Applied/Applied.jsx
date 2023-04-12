@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { HiChevronDown } from 'react-icons/hi';
 import AppliedItem from '../AppliedItem/AppliedItem';
 import { getAppliedJobs } from '../../utilities/localStorageManage';
+import { useNavigation } from 'react-router-dom';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 const Applied = () => {
     const [allData, setAllData] = useState([])
@@ -43,6 +45,12 @@ const Applied = () => {
             setShowAppliedData(onsiteData);
         }
     }
+
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <LoadSpinner />
+    }
+
     return (
         <section>
             <div className="container h-96 flex justify-center items-center bg-purple-50 py-16">

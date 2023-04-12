@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CategoryItem from '../CategoryItem/CategoryItem';
+import { useNavigation } from 'react-router-dom';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 const Category = () => {
     const [data, setData ] = useState([])
@@ -8,6 +10,12 @@ const Category = () => {
         .then(res => res.json())
         .then(data => setData(data))
     }, [])
+
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <LoadSpinner />
+    }
+
     return (
         <section className='py-16'>
             <div className="container">

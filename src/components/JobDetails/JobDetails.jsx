@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import { HiOutlineCurrencyDollar, HiOutlineFlag, HiOutlineLocationMarker, HiOutlineMailOpen, HiOutlinePhone } from 'react-icons/hi';
 import { addToDb, getAppliedJobs } from '../../utilities/localStorageManage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 const JobDetails = () => {
     const main_data = useLoaderData()
@@ -21,6 +22,12 @@ const JobDetails = () => {
             addToDb(id)
         }
     }
+
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <LoadSpinner />
+    }
+
     return (
         <section>
             <div className="container h-96 flex justify-center items-center bg-purple-50 py-16">

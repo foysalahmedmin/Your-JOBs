@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FeaturedItem from '../FeaturedItem/FeaturedItem';
+import { useNavigation } from 'react-router-dom';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 const Featured = () => {
     const [jobsData, setJobsData] = useState([])
@@ -9,6 +11,12 @@ const Featured = () => {
             .then(res => res.json())
             .then(data => setJobsData(data))
     }, [])
+
+    const navigation = useNavigation()
+    if (navigation.state === 'loading') {
+        return <LoadSpinner />
+    }
+
     return (
         <section className='py-16'>
             <div className="container">
