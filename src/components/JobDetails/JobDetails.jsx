@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import { HiOutlineCurrencyDollar, HiOutlineFlag, HiOutlineLocationMarker, HiOutlineMailOpen, HiOutlinePhone } from 'react-icons/hi';
-import { addToDb, getAppliedJobs } from '../../utilities/localStorageManage';
+import { addToDb, removeFromDb, getAppliedJobs } from '../../utilities/localStorageManage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -11,9 +11,13 @@ const JobDetails = () => {
     const main_data = useLoaderData()
     const { _id, job_title, company, address, min_salary, max_salary, phone, email, description, job_responsibility, Educational_Requirements, Experiences } = main_data;
     const [applied, setApplied] = useState({})
+    const [appliedCheck, setAppliedCheck] =  useState(false)
     useEffect(() => {
         const dbData = getAppliedJobs()
         setApplied(dbData)
+        if (_id in dbData) {
+            setAppliedCheck(true)
+        }
     }, [])
     const addToDB_handler = (id) => {
         if (id in applied) {
@@ -21,9 +25,18 @@ const JobDetails = () => {
         } else {
             addToDb(id)
             toast.success("Applied Successfully :)")
-            const data = applied ;
             setApplied({...applied, [id]: new Date})
+            setAppliedCheck(true)
         }
+    }
+    const cancel_handler = (id) => {
+        removeFromDb(id);
+        setAppliedCheck(false)
+        const updateData = applied ;
+        delete updateData[id]
+        setApplied(updateData)
+        toast.success("Cancelation Successful :)")
+
     }
 
     const navigation = useNavigation()
@@ -43,7 +56,7 @@ const JobDetails = () => {
                 </div>
                 <div>
                     <div className='lg:w-[29rem] md:w-80 w-full'>
-                        <div className='bg-purple-100 p-8 mb-8 rounded-md'>
+                        <div className='bg-purple-100 p-8 mb-4 rounded-md'>
                             <div className='mb-8 '>
                                 <h3 className='text-2xl font-bold border-b border-black pb-5 mb-5'>Job Details</h3>
                                 <hr />
@@ -57,8 +70,9 @@ const JobDetails = () => {
                                 <p className='flex items-center gap-2 text-xl'><span className='text-primary'><HiOutlineLocationMarker /></span> <span><strong className='text-gray-600'>Address:</strong> <span className='text-gray-500'>{address}</span></span></p>
                             </div>
                         </div>
+                        <button onClick={() => addToDB_handler(_id)} className='btn-primary w-full mb-4'>Apply Now</button>
                         {
-                            <button onClick={() => addToDB_handler(_id)} className='btn-primary w-full'>Apply Now</button>
+                            appliedCheck && <button onClick={() => cancel_handler(_id)} className='btn-primary w-full'>Cancel Apply</button>
                         }
 
                     </div>
