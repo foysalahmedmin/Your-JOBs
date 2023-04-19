@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AnsQues from '../AnsQues/AnsQues';
+import SubBanner from '../SubBanner/SubBanner';
 
 const Blog = () => {
     const [ansQues, setAnsQues] = useState([]);
@@ -9,13 +10,9 @@ const Blog = () => {
             .then(data => setAnsQues(data))
     }, [])
     return (
-        <section className='py-16'>
-            <div className="container mx-auto px-[2.5%]">
-                <div className="text-center mb-7">
-                    <h2 className='font-bold text-4xl'>
-                        Ans Of Questions
-                    </h2>
-                </div>
+        <section>
+            <SubBanner><h1 className='font-bold text-4xl'>Ans Of Questions</h1></SubBanner>
+            <div className="container py-16">
                 <div>
                     {
                         ansQues.map(singleQuestion => <AnsQues data={singleQuestion} key={singleQuestion.id}></AnsQues>)

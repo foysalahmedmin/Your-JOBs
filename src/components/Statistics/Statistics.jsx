@@ -2,6 +2,7 @@ import React, { useEffect, useState, PureComponent } from 'react';
 import { useNavigation } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
+import SubBanner from '../SubBanner/SubBanner';
 
 
 
@@ -20,16 +21,9 @@ const Statistics = () => {
     }
 
     return (
-        <section className='py-16'>
-            <div className="container">
-                <div className="text-center mb-7">
-                    <h2 className='font-bold text-4xl mb-5'>
-                        Assignment Marks
-                    </h2>
-                    <p>
-                        Explore thousands of job opportunities with all the information you need. Its your future
-                    </p>
-                </div>
+        <section>
+            <SubBanner><h1 className='font-bold text-4xl'>Assignment Marks</h1></SubBanner>
+            <div className="container py-16">
                 <div className='text-center flex items-center justify-center h-full overflow-x-scroll lg:overflow-auto'>
                     <AreaChart
                         width={1000}

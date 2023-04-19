@@ -17,10 +17,12 @@ const JobDetails = () => {
     }, [])
     const addToDB_handler = (id) => {
         if (id in applied) {
-            console.log("")
-            toast("Already applied :)")
+            toast.info("Already applied :)")
         } else {
             addToDb(id)
+            toast.success("Applied Successfully :)")
+            const data = applied ;
+            setApplied({...applied, [id]: new Date})
         }
     }
 
@@ -55,7 +57,9 @@ const JobDetails = () => {
                                 <p className='flex items-center gap-2 text-xl'><span className='text-primary'><HiOutlineLocationMarker /></span> <span><strong className='text-gray-600'>Address:</strong> <span className='text-gray-500'>{address}</span></span></p>
                             </div>
                         </div>
-                        <button onClick={() => addToDB_handler(_id)} className='btn-primary w-full'>Apply Now</button>
+                        {
+                            <button onClick={() => addToDB_handler(_id)} className='btn-primary w-full'>Apply Now</button>
+                        }
 
                     </div>
                 </div>
